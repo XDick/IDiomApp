@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/bottom_main"
+        inActiveColor="#ffffff"
+        title="主页"
+        activeColor="#b7b2b2"
+        barColorWhenSelected="#2f2f33"
+        icon="@drawable/menu"
+        />
+    <tab
+        id="@+id/bottom_food"
+        inActiveColor="#ffffff"
+        title="历史故事"
+        activeColor="#b7b2b2"
+        barColorWhenSelected="#2f2f33"
+        icon="@drawable/menu"
+        />
+    <tab
+        id="@+id/bottom_more"
+        inActiveColor="#ffffff"
+        title="更多"
+        activeColor="#b7b2b2"
+        barColorWhenSelected="#2f2f33"
+        icon="@drawable/menu"
+        />
+
+    <tab
+        id="@+id/bottom_setting"
+        inActiveColor="#ffffff"
+        title="设置"
+        activeColor="#b7b2b2"
+        barColorWhenSelected="#2f2f33"
+        icon="@drawable/menu"/>
+
+
+</tabs>
+
