@@ -35,6 +35,7 @@ public class Activity1 extends Fragment {
     private Elements sizeElements;
     private int ListSize;
     private View rootView;//缓存Fragment view
+    boolean notFinish =true;
 
 
 
@@ -59,6 +60,8 @@ public class Activity1 extends Fragment {
 
 
 /*------------------------------------数据库储存-----------------------*/
+         if(notFinish){
+         getHtmlFromJsoup();}
 
             initIdioms();
 /*-----------------------------列表--------------------------------------*/
@@ -165,6 +168,7 @@ public class Activity1 extends Fragment {
 
                     }
                     //  initIdioms();
+                    notFinish=false;
                 }
                 catch(Exception e){
                     e.printStackTrace();
@@ -184,7 +188,8 @@ public class Activity1 extends Fragment {
     private void initIdioms() {
         famousPeopleList.clear();
         List<FamousPeople> famousPeopleData = new ArrayList<FamousPeople>();
-        famousPeopleData = DataSupport.limit(1000).offset(0).find(FamousPeople.class);
+        famousPeopleData = DataSupport.limit(1000).offset(0)
+                .find(FamousPeople.class);
         Collections.shuffle(famousPeopleData);//使列表乱序
         for (FamousPeople idiom: famousPeopleData){
 

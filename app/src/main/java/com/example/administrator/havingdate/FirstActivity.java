@@ -23,6 +23,8 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,6 +37,7 @@ import android.widget.Toast;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 
 
+import org.litepal.crud.DataSupport;
 import org.litepal.tablemanager.Connector;
 import org.w3c.dom.Text;
 
@@ -50,16 +53,18 @@ import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import km.lmy.searchview.SearchView;
+
 public class FirstActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
-
-
+    SearchView searchView;
+   Idiom searchIdiom;
 
     private BottomBar bottomBar;
 
     private BottomBarTab nearby;
-
+    List<Idiom> searchList = new ArrayList<Idiom>();
 
 
 
@@ -72,6 +77,14 @@ public class FirstActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         Connector.getDatabase();
+
+
+        /*---------------------------搜索栏----------------------*/
+         setSearch();
+
+
+
+
 
 
        /*---------------------------------悬浮按钮--------------------------------*/
@@ -204,8 +217,7 @@ public class FirstActivity extends AppCompatActivity {
         mDrawerLayout.openDrawer(GravityCompat.START);
         break;
             case  R.id.search:
-                Intent intent1 = new Intent(FirstActivity.this,SearchActivity.class);
-                startActivity(intent1);
+                searchView.open();
           break;}
         return true;
 
@@ -241,4 +253,54 @@ private void replaceFragment (Fragment fragment){
         return null;
     }
 */
+
+private void setSearch(){
+
+    searchView =findViewById(R.id.searchView);
+    searchView.defaultState(searchView.CLOSE);
+
+    searchView.setOnSearchActionListener(new SearchView.OnSearchActionListener() {
+        @Override
+        public void onSearchAction(String s) {
+            searchView.addOneHistory(searchView.getEditTextView().getText().toString() );
+                    searchList = DataSupport
+                            .where("title like ?"
+                                    ,"%"+searchView.getEditTextView().getText().toString()+"%")
+                            .find(Idiom.class);
+                    for(Idiom idiom :searchList){
+                        Log.d("","搜索栏"+idiom.getTitle());
+                        searchIdiom = idiom;
+                    }
+
+
+            Intent intent = new Intent(FirstActivity.this , InformationActivity.class);
+            intent.putExtra(InformationActivity.INFORMATION_NAME,searchIdiom.getTitle());
+            intent.putExtra("image_url",searchIdiom.getImageId());
+            intent.putExtra("idiom_content",searchIdiom.getContent());
+            FirstActivity.this.startActivity(intent);
+        }
+    });
+
+
+      searchView.setOnInputTextChangeListener(new SearchView.OnInputTextChangeListener() {
+          @Override
+          public void onTextChanged(CharSequence charSequence) {
+
+          }
+
+          @Override
+          public void beforeTextChanged(CharSequence charSequence) {
+
+          }
+
+          @Override
+          public void afterTextChanged(Editable editable) {
+
+          }
+      });
+
+
+
+}
+
 }

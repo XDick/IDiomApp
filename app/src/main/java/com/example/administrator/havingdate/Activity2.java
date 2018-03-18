@@ -41,6 +41,7 @@ public class Activity2 extends Fragment {
     private Elements sizeElements;
     private int ListSize;
     private View rootView;//缓存Fragment view
+    boolean notFinish =true;
 
 
 
@@ -61,8 +62,9 @@ public class Activity2 extends Fragment {
 
     Log.d(TAG,"看看有没有运行");
         Connector.getDatabase();
-        getHtmlFromJsoup();
-
+        if (notFinish) {
+            getHtmlFromJsoup();
+        }
 
 /*------------------------------------数据库储存-----------------------*/
 
@@ -170,6 +172,7 @@ public class Activity2 extends Fragment {
 
                             }
                               Log.d(TAG , "加载完毕！");
+                           notFinish= false;
                     }
                 catch(Exception e){
                         e.printStackTrace();

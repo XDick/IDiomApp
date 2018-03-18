@@ -3,7 +3,7 @@
     <tab
         id="@+id/bottom_main"
         inActiveColor="#ffffff"
-        title="主页"
+        title="成语故事"
         activeColor="#b7b2b2"
         barColorWhenSelected="#2f2f33"
         icon="@drawable/menu"

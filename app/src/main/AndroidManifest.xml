@@ -36,15 +36,13 @@
         <activity android:name=".InformationActivity"
             android:theme="@style/InformationActivityTheme"/>
         <activity android:name=".EnterActivity" />
-        <activity android:name=".SearchActivity" />
+
         <activity android:name=".AuthorActivity"
             android:theme="@style/myDialogTheme"
             android:screenOrientation="portrait"/>
 
-        <service android:name="com.baidu.location.f"
-            android:enabled="true"
-            android:process=":remote">
-        </service>
+        <meta-data android:name="android.app.default_searchable"
+            android:value=".SearchActivity"/>
     </application>
 
 </manifest>
