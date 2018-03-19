@@ -43,6 +43,8 @@
 
         <meta-data android:name="android.app.default_searchable"
             android:value=".SearchActivity"/>
+        <activity android:name=".DownloadActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
     </application>
 
 </manifest>

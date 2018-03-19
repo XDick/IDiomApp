@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="需要从数据库下载数据，这将消耗一定的流量，建议在WIFI环境下初始化数据"
+    android:id="@+id/textView2" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:max="100"
+        android:progress="20"
+        android:progressDrawable="@drawable/layer_list_progress_drawable_1" />
+
+    <TextView
+        android:id="@+id/percent_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="50dp"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/download_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="251dp"
+        android:text="下载数据">
+
+    </Button>
+
+</RelativeLayout>

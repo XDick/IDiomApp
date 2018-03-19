@@ -8,14 +8,14 @@
         barColorWhenSelected="#2f2f33"
         icon="@drawable/menu"
         />
-    <tab
+   <!-- <tab
         id="@+id/bottom_food"
         inActiveColor="#ffffff"
         title="历史故事"
         activeColor="#b7b2b2"
         barColorWhenSelected="#2f2f33"
         icon="@drawable/menu"
-        />
+        />-->
     <tab
         id="@+id/bottom_more"
         inActiveColor="#ffffff"

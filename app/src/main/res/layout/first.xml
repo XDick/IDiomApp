@@ -38,6 +38,7 @@
               app:layout_scrollFlags="enterAlways|scroll|snap"/>
       </android.support.design.widget.AppBarLayout>
 
+
     <FrameLayout
         android:id="@+id/fragment"
         android:layout_width="match_parent"

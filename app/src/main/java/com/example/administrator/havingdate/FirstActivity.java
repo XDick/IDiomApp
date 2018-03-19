@@ -2,6 +2,9 @@ package com.example.administrator.havingdate;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -25,6 +28,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,8 +63,8 @@ public class FirstActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     SearchView searchView;
-   Idiom searchIdiom;
-
+    Idiom searchIdiom;
+    private Button downLoadButton ;
     private BottomBar bottomBar;
 
     private BottomBarTab nearby;
@@ -77,8 +81,6 @@ public class FirstActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         Connector.getDatabase();
-
-
         /*---------------------------搜索栏----------------------*/
          setSearch();
 
@@ -138,7 +140,7 @@ public class FirstActivity extends AppCompatActivity {
 
         });
 
-
+        gotoDialog();
         /*---------------------底部导航栏----------------------------------*/
 
         //replaceFragment(new Activity2());
@@ -155,10 +157,10 @@ public class FirstActivity extends AppCompatActivity {
                         replaceFragment(new Activity2());
 
                         break;
-                    case R.id.bottom_food:
+                   /* case R.id.bottom_food:
                         nearby = bottomBar.getTabWithId(R.id.bottom_food);
                         replaceFragment(new Activity1());
-                        break;
+                        break;*/
                     case R.id.bottom_more:
                         nearby = bottomBar.getTabWithId(R.id.bottom_more);
 
@@ -181,9 +183,9 @@ public class FirstActivity extends AppCompatActivity {
                     case R.id.bottom_main:
                         nearby.removeBadge();
                         break;
-                    case R.id.bottom_food:
+                  /*  case R.id.bottom_food:
                         nearby.removeBadge();
-                        break;
+                        break;*/
                     case R.id.bottom_more:
                         nearby.removeBadge();
                         break;
@@ -207,6 +209,8 @@ public class FirstActivity extends AppCompatActivity {
             actionBar.setHomeAsUpIndicator(R.drawable.menu);
         }
 
+
+
     }
 
     /*--------------------------------------------------------------------------------------*/
@@ -229,7 +233,17 @@ public class FirstActivity extends AppCompatActivity {
 
         return true;
     }
-
+/*--------------------------------监听返回键--------------------*/
+public boolean onKeyDown(int keyCode,KeyEvent event) {
+    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0){
+             if(searchView.isOpen()){
+                 searchView.close();
+             }
+             else{finish();}
+        return true;
+    }
+    return false;
+}
 /*-------------------------------------显示碎片-------------------------------------------------*/
 
 
@@ -303,4 +317,10 @@ private void setSearch(){
 
 }
 
+
+private void gotoDialog(){
+    Intent intent = new Intent(FirstActivity.this,DownloadActivity.class);
+    startActivity(intent);
+
+}
 }
