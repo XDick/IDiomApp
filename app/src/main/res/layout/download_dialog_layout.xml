@@ -4,42 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="需要从数据库下载数据，这将消耗一定的流量，建议在WIFI环境下初始化数据"
-    android:id="@+id/textView2" />
-
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:max="100"
-        android:progress="20"
-        android:progressDrawable="@drawable/layer_list_progress_drawable_1" />
-
     <TextView
-        android:id="@+id/percent_text"
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="50dp"
-        android:textSize="15dp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:text="感谢使用本应用: ) 需要从服务器初始化数据，只占用你10M左右的内存。(*^▽^*)       你可以在左侧“统计”菜单查看加载情况(≖ᴗ≖)✧"
+        android:textSize="15dp"
+        android:layout_margin="15dp"
+        android:textColor="#737373"
+        />
+
 
     <Button
         android:id="@+id/download_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="251dp"
-        android:text="下载数据">
+        android:layout_below="@+id/textView2"
+        android:text="初始化数据"
+        android:textColor="#737373"
+        android:layout_margin="15dp">
 
     </Button>
 

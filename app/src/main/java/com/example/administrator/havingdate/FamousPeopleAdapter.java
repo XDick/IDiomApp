@@ -58,8 +58,9 @@ public class FamousPeopleAdapter extends RecyclerView.Adapter<FamousPeopleAdapte
                 FamousPeople famousPeople = mFamousPeopleList.get(position);
                 Intent intent = new Intent(mContext , InformationActivity.class);
                 intent.putExtra(InformationActivity.INFORMATION_NAME,famousPeople.getTitle());
-                intent.putExtra("image_url",famousPeople.getImageId());
+                intent.putExtra("image_url",famousPeople.getImageUrl());
                 intent.putExtra("idiom_content",famousPeople.getContent());
+                intent.putExtra("idiom_pre",famousPeople.getBody());
                 mContext.startActivity(intent);
             }
         });
@@ -72,8 +73,13 @@ public class FamousPeopleAdapter extends RecyclerView.Adapter<FamousPeopleAdapte
         FamousPeople famousPeople= mFamousPeopleList.get(position);
         holder. idiomName.setText(famousPeople.getTitle());
         holder. idiomContent.setText(famousPeople.getBody());
-        Glide.with(mContext).load(famousPeople.getImageId()).into(holder. idiomImage);
 
+        if(famousPeople.getImageUrl().equals("http://www.gs5000.cn/images/defaultpic.gif")) {
+            Glide.with(mContext).load(R.drawable.android).into(holder.idiomImage);
+        }
+        else{
+            Glide.with(mContext).load(famousPeople.getImageUrl()).into(holder.idiomImage);
+        }
     }
     @Override
     public int getItemCount(){
