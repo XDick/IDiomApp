@@ -34,7 +34,7 @@
               android:layout_width="match_parent"
               android:layout_height="?attr/actionBarSize"
               android:background="#226ecc"
-             
+
               app:layout_scrollFlags="enterAlways|scroll|snap"/>
       </android.support.design.widget.AppBarLayout>
 
