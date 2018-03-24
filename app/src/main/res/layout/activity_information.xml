@@ -16,7 +16,7 @@
         android:id="@+id/collapsing_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/BlueTheme"
         app:contentScrim="?attr/colorPrimary"
         app:layout_scrollFlags="scroll|exitUntilCollapsed"
         android:fitsSystemWindows="true">
@@ -31,8 +31,10 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
+
             android:layout_height="?attr/actionBarSize"
             android:layout_width="match_parent"
+
             app:layout_collapseMode="pin"/>
 
     </android.support.design.widget.CollapsingToolbarLayout>
@@ -64,7 +66,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:textSize="15dp"
+                    android:textSize="14.5dp"
+                    android:textColor="#4e4e4e"
                     android:lineSpacingExtra="5dp"/>
             </android.support.v7.widget.CardView>
         </LinearLayout>
@@ -77,6 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:theme="@style/BlueTheme"
         app:elevation="8dp"
         app:layout_anchor="@id/appBar"
         app:layout_anchorGravity="bottom|end"

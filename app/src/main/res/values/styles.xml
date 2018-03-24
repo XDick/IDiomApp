@@ -28,4 +28,17 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 <style name="InformationActivityTheme" parent="AppTheme"></style>
+    <style name="BlueTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#226ecc</item>
+        <item name="colorPrimaryDark">#226ecc</item>
+        <item name="colorAccent">#39abaf</item>
+        <item name="colorControlHighlight">#275ba4</item>
+        <item name="android:colorControlNormal">#f2f2f2</item>
+        <item name="android:textColorPrimary">#f4f4f4</item>
+
+
+    </style>
+
+
 </resources>

@@ -50,7 +50,6 @@ public class Activity1 extends Fragment {
         Log.d(TAG,"看看碎片1有没有运行");
 
 
-
 /*------------------------------------数据库储存-----------------------*/
 
         Connector.getDatabase();
@@ -77,7 +76,7 @@ public class Activity1 extends Fragment {
     }
     /*--------------------------实现刷新功能---------------------------*/
 
-    private void refreshInformations() {
+   private void refreshInformations() {
         new Thread(new Runnable() {
             @Override
             public void run() {

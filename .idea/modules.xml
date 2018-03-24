@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FamousPeople.iml" filepath="$PROJECT_DIR$/FamousPeople.iml" />
+      <module fileurl="file://E:\Android\myApp\idiomApp\FamousPeople.iml" filepath="E:\Android\myApp\idiomApp\FamousPeople.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://E:\Android\myApp\idiomApp\idiom.iml" filepath="E:\Android\myApp\idiomApp\idiom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idiomApp.iml" filepath="$PROJECT_DIR$/idiomApp.iml" />
       <module fileurl="file://E:\XDick\Android\APP\Android\idiom\idiomApp.iml" filepath="E:\XDick\Android\APP\Android\idiom\idiomApp.iml" />
     </modules>
   </component>

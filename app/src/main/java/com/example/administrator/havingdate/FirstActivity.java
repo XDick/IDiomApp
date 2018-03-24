@@ -1,9 +1,7 @@
 package com.example.administrator.havingdate;
 
 import android.content.Intent;
-import android.provider.ContactsContract;
-import android.support.annotation.IdRes;
-import android.support.design.widget.FloatingActionButton;
+
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -25,7 +23,7 @@ import android.widget.Toast;
 
 
 import org.litepal.crud.DataSupport;
-import org.litepal.tablemanager.Connector;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +128,11 @@ public class FirstActivity extends AppCompatActivity {
         break;
             case  R.id.search:
                 searchView.open();
-          break;}
+          break;
+
+
+
+    }
         return true;
 
     }

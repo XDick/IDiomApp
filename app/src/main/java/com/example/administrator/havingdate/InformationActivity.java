@@ -69,7 +69,7 @@ public class InformationActivity extends AppCompatActivity{
     for (FamousPeople famous : famousPeopleList){
         famousPeople =famous;
     }
-    if (famousPeople.getLove()=="true"){
+    if (famousPeople.getLove().equals("true")){
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -86,7 +86,7 @@ public class InformationActivity extends AppCompatActivity{
             public void onClick(View v) {
 
 
-                if (famousPeople.getLove()=="true") {
+                if (famousPeople.getLove().equals("true")) {
 
                     FamousPeople famous =new FamousPeople();
                     famousPeople.setLove("false");
