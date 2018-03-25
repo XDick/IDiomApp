@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextPaint;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import km.lmy.searchview.SearchView;
+
 import static android.content.ContentValues.TAG;
 
 
@@ -32,14 +35,13 @@ public class Activity1 extends Fragment {
     private SwipeRefreshLayout swipeRefresh;
 
     private Document document2;
-    private  Document document;
+    private Document document;
     private List<FamousPeople> famousPeopleList = new ArrayList<>();
     private FamousPeopleAdapter adapter;
     private Elements sizeElements;
     private int ListSize;
     private View rootView;//缓存Fragment view
-    boolean notFinish =true;
-
+    boolean notFinish = true;
 
 
     /*--------------------------------------------------------*/
@@ -47,7 +49,7 @@ public class Activity1 extends Fragment {
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_layout1, container, false);
 
-        Log.d(TAG,"看看碎片1有没有运行");
+        Log.d(TAG, "看看碎片1有没有运行");
 
 
 /*------------------------------------数据库储存-----------------------*/
@@ -60,7 +62,7 @@ public class Activity1 extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new FamousPeopleAdapter(famousPeopleList);
         recyclerView.setAdapter(adapter);
-        Log.d(TAG,"列表1生成的代码");
+        Log.d(TAG, "列表1生成的代码");
 
         swipeRefresh = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
@@ -76,7 +78,7 @@ public class Activity1 extends Fragment {
     }
     /*--------------------------实现刷新功能---------------------------*/
 
-   private void refreshInformations() {
+    private void refreshInformations() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -101,19 +103,22 @@ public class Activity1 extends Fragment {
     /*------------------------------------------------------------------------*/
 
 
-
     private void initIdioms() {
         famousPeopleList.clear();
-        List<FamousPeople> famousPeopleData ;
+        List<FamousPeople> famousPeopleData;
         famousPeopleData = DataSupport.limit(3000).offset(0)
                 .find(FamousPeople.class);
         Collections.shuffle(famousPeopleData);//使列表乱序
-        for (FamousPeople idiom: famousPeopleData){
+        for (FamousPeople idiom : famousPeopleData) {
             famousPeopleList.add(idiom);
-            Log.d(TAG , idiom.getTitle());
+            Log.d(TAG, idiom.getTitle());
         }
 
         ListSize = famousPeopleData.size();
-        Log.d(TAG , "列表大小"+ListSize);
+        Log.d(TAG, "列表大小" + ListSize);
     }
+
+
+
 }
+

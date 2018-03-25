@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextPaint;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,7 +92,6 @@ public class Activity2 extends android.support.v4.app.Fragment {
         List<FamousPeople> famousPeopleData = DataSupport
                 .where("love like ?", "%" + "true" + "%")
                 .find(FamousPeople.class);
-
 
         for (FamousPeople famous : famousPeopleData) {
             famousPeopleList.add(famous);

@@ -2,6 +2,8 @@ package com.example.administrator.havingdate;
 
 import android.content.Intent;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -38,9 +40,16 @@ public class FirstActivity extends AppCompatActivity {
     SearchView searchView;
     FamousPeople searchFamous;
     private Button downLoadButton ;
-
-
+    private static boolean isExit=false;
     List<FamousPeople> searchList = new ArrayList<FamousPeople>();
+    Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
 
 
 
@@ -149,13 +158,9 @@ public boolean onKeyDown(int keyCode,KeyEvent event) {
              if(searchView.isOpen()){
                  searchView.close();
              }
-             else{finish();
-                 searchView.setOnCleanHistoryClickListener(new SearchView.OnCleanHistoryClickListener() {
-                     @Override
-                     public void onClick() {
-                         searchView.performClick();
-                     }
-                 });
+             else{
+                 exit();
+
              }
         return true;
     }
@@ -253,6 +258,20 @@ boolean  IfGoToDialog(){
         return  true;
     }
     return false;
+    }
+
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+         replaceFragment(new Activity1());
+            Toast.makeText(getApplicationContext(), "再按一次退出程序",
+                    Toast.LENGTH_SHORT).show();
+            // 利用handler延迟发送更改状态信息
+            mHandler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            finish();
+            System.exit(0);
+        }
     }
 
 }
