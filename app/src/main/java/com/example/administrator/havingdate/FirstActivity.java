@@ -264,13 +264,12 @@ boolean  IfGoToDialog(){
         if (!isExit) {
             isExit = true;
          replaceFragment(new Activity1());
-            Toast.makeText(getApplicationContext(), "再按一次退出程序",
+            Toast.makeText(getApplicationContext(), "再按一次退出",
                     Toast.LENGTH_SHORT).show();
             // 利用handler延迟发送更改状态信息
             mHandler.sendEmptyMessageDelayed(0, 2000);
         } else {
             finish();
-            System.exit(0);
         }
     }
 
